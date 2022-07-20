@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalculadoraService } from '../services';
 
 @Component({
   selector: 'app-calculadora',
@@ -12,11 +13,19 @@ export class CalculadoraComponent implements OnInit {
   private resultado: number;
   private operacao: string;
 
-  constructor(){
+  constructor(private calculadoraService: CalculadoraService){
 
   }
 
   ngOnInit() {
-
+    this.limpar();
   }
+
+  limpar():void{
+    this.numero1 = '0';
+    this.numero2 = null;
+    this.resultado = null;
+    this.operacao = null;
+  }
+
 }
